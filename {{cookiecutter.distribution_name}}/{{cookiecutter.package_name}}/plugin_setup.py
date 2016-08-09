@@ -12,7 +12,15 @@ plugin = qiime.plugin.Plugin(
     name='{{cookiecutter.plugin_name}}',
     version={{cookiecutter.package_name}}.__version__,
     website='{{cookiecutter.url}}',
-    package='{{cookiecutter.package_name}}'
+    package='{{cookiecutter.package_name}}',
+    # Information on how to obtain user support should be provided as a free
+    # text string via user_support_text. If None is provided, users will
+    # be referred to the plugin's website for support.
+    user_support_text=None,
+    # Information on how the plugin should be cited should be provided as a
+    # free text string via citation_text. If None is provided, users
+    # will be told to use the plugin's website as a citation.
+    citation_text=None
 )
 
 # The next two code blocks are examples of how to register methods and
