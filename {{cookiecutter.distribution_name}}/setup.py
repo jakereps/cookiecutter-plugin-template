@@ -18,7 +18,7 @@ setup(
     # visualizers provided as examples. Remove these dependencies when you're
     # ready to develop your plugin, and add your own dependencies (if there are
     # any).
-    install_requires=['qiime >= 2.0.0', 'pandas', 'q2-dummy-types'],
+    install_requires=['qiime >= 2.0.5', 'pandas', 'q2-dummy-types'],
     author="{{cookiecutter.author}}",
     author_email="{{cookiecutter.email}}",
     description="{{cookiecutter.description}}",
