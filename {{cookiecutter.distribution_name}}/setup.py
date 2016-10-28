@@ -14,16 +14,22 @@ setup(
     name="{{cookiecutter.distribution_name}}",
     version=version,
     packages=find_packages(),
-    # pandas and q2-dummy-types are only required for the dummy methods and
-    # visualizers provided as examples. Remove these dependencies when you're
-    # ready to develop your plugin, and add your own dependencies (if there are
-    # any).
-    install_requires=['qiime >= 2.0.5', 'pandas', 'q2-dummy-types'],
+    # pandas, q2templates and q2-dummy-types are only required for the dummy
+    # methods and visualizers provided as examples. Remove these dependencies
+    # when you're ready to develop your plugin, and add your own dependencies
+    # (if there are any).
+    install_requires=['qiime >= 2.0.5', 'pandas', 'q2-dummy-types',
+                      'q2templates'],
     author="{{cookiecutter.author}}",
     author_email="{{cookiecutter.email}}",
     description="{{cookiecutter.description}}",
     entry_points={
         "qiime.plugins":
         ["{{cookiecutter.distribution_name}}={{cookiecutter.package_name}}.plugin_setup:plugin"]
+    },
+    # If you are creating a visualizer, all template assets must be included in
+    # the package source, if you are not using q2templates this can be removed
+    package_data={
+        "{{cookiecutter.package_name}}": ["assets/index.html"]
     }
 )
