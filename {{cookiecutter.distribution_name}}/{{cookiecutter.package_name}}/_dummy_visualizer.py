@@ -8,8 +8,7 @@ import pandas as pd
 import q2templates
 
 
-TEMPLATES = pkg_resources.resource_filename(
-    "{{cookiecutter.package_name}}", 'assets')
+TEMPLATES = pkg_resources.resource_filename("{{cookiecutter.package_name}}", 'assets')
 
 
 def mapping_viz(output_dir: str, mapping1: dict, mapping2: dict,
@@ -17,10 +16,18 @@ def mapping_viz(output_dir: str, mapping1: dict, mapping2: dict,
     df1 = _dict_to_dataframe(mapping1, key_label, value_label)
     df2 = _dict_to_dataframe(mapping2, key_label, value_label)
 
+    mapping1 = df1.to_html(index=False,
+                           classes='table table-striped table-hover')
+    mapping1 = mapping1.replace('border="1"', 'border="0"')
+
+    mapping2 = df2.to_html(index=False,
+                           classes='table table-striped table-hover')
+    mapping2 = mapping2.replace('border="1"', 'border="0"')
+
     index = os.path.join(TEMPLATES, 'index.html')
     context = {
-        "mapping1": df1.to_html(index=False, classes='dummy-class'),
-        "mapping2": df2.to_html(index=False, classes='dummy-class')
+        "mapping1": mapping1,
+        "mapping2": mapping2
     }
 
     q2templates.render(index, output_dir, context=context)
