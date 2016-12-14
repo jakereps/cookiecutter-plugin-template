@@ -10,6 +10,13 @@ with open('{{cookiecutter.package_name}}/__init__.py', 'rb') as f:
     hit = _version_re.search(f.read().decode('utf-8')).group(1)
     version = str(ast.literal_eval(hit))
 
+
+# Because q2cli uses a custom caching system to implement tab completion, the
+# installed plugin cache is not automatically updated upon installation of a
+# new QIIME 2 Plugin. If you have installed a plugin, and it does not show up
+# on your list of available plugins in q2cli, simply run:
+#       `qiime dev refresh-cache`
+# to update your cached data.
 setup(
     name="{{cookiecutter.distribution_name}}",
     version=version,
