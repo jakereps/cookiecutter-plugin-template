@@ -1,14 +1,4 @@
 from setuptools import setup, find_packages
-import re
-import ast
-
-# version parsing from __init__ pulled from Flask's setup.py
-# https://github.com/mitsuhiko/flask/blob/master/setup.py
-_version_re = re.compile(r'__version__\s+=\s+(.*)')
-
-with open('{{cookiecutter.package_name}}/__init__.py', 'rb') as f:
-    hit = _version_re.search(f.read().decode('utf-8')).group(1)
-    version = str(ast.literal_eval(hit))
 
 
 # NOTE: If you are testing your plugin with `q2cli` (i.e. the `qiime` command)
@@ -31,19 +21,22 @@ with open('{{cookiecutter.package_name}}/__init__.py', 'rb') as f:
 # cache will automatically be updated when necessary.
 setup(
     name="{{cookiecutter.distribution_name}}",
-    version=version,
+    version="{{cookiecutter.version}}",
     packages=find_packages(),
     # pandas, q2templates and q2-dummy-types are only required for the dummy
     # methods and visualizers provided as examples. Remove these dependencies
     # when you're ready to develop your plugin, and add your own dependencies
     # (if there are any).
-    install_requires=['qiime >= 2.0.6', 'pandas', 'q2-dummy-types >= 0.0.6',
-                      'q2templates >= 0.0.6'],
+    install_requires=['qiime2 == 2017.2.*', 'q2-dummy-types == 2017.2.*',
+                      'q2templates == 2017.2.*', 'pandas'],
     author="{{cookiecutter.author}}",
     author_email="{{cookiecutter.email}}",
+    url="{{cookiecutter.url}}",
+    # Visit choosealicense.com for some guidance on picking a license.
+    # license="BSD-3-Clause",
     description="{{cookiecutter.description}}",
     entry_points={
-        "qiime.plugins":
+        "qiime2.plugins":
         ["{{cookiecutter.distribution_name}}={{cookiecutter.package_name}}.plugin_setup:plugin"]
     },
     # If you are creating a visualizer, all template assets must be included in

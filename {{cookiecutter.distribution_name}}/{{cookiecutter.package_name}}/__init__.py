@@ -1,1 +1,4 @@
-__version__ = "{{cookiecutter.version}}"
+import pkg_resources
+
+
+__version__ = pkg_resources.get_distribution('{{cookiecutter.distribution_name}}').version

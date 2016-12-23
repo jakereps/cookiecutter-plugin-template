@@ -2,7 +2,7 @@
     "plugin_name": "my-plugin",
     "distribution_name": "q2-{{cookiecutter.plugin_name}}",
     "package_name": "{{cookiecutter.distribution_name.replace('-', '_')}}",
-    "version": "0.0.0",
+    "version": "{% now 'local', '%Y.%-m.0.dev0' %}",
     "author": "Author name",
     "email": "Author email",
     "description": "Description of {{cookiecutter.distribution_name}}",

@@ -1,4 +1,4 @@
-import qiime.plugin
+import qiime2.plugin
 
 import {{cookiecutter.package_name}}
 
@@ -8,7 +8,7 @@ from q2_dummy_types import IntSequence1, IntSequence2, Mapping
 from ._dummy_method import concatenate_ints
 from ._dummy_visualizer import mapping_viz
 
-plugin = qiime.plugin.Plugin(
+plugin = qiime2.plugin.Plugin(
     name='{{cookiecutter.plugin_name}}',
     version={{cookiecutter.package_name}}.__version__,
     website='{{cookiecutter.url}}',
@@ -35,8 +35,8 @@ plugin.methods.register_function(
         'ints3': IntSequence2
     },
     parameters={
-        'int1': qiime.plugin.Int,
-        'int2': qiime.plugin.Int
+        'int1': qiime2.plugin.Int,
+        'int2': qiime2.plugin.Int
     },
     outputs=[
         ('concatenated_ints', IntSequence1)
@@ -53,8 +53,8 @@ plugin.visualizers.register_function(
         'mapping2': Mapping
     },
     parameters={
-        'key_label': qiime.plugin.Str,
-        'value_label': qiime.plugin.Str
+        'key_label': qiime2.plugin.Str,
+        'value_label': qiime2.plugin.Str
     },
     name='Visualize two mappings',
     description='This visualizer produces an HTML visualization of two '
