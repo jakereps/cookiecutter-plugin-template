@@ -1,7 +1,5 @@
 # cookiecutter-plugin-template
 
-[Cookiecutter](http://cookiecutter.readthedocs.io/en/latest/) template for initializing QIIME 2 plugin packages.
+[Cookiecutter](http://cookiecutter.readthedocs.io/en/latest/) template for initializing [QIIME 2](https://qiime2.org) plugin packages.
 
-This repository is intended to be used by QIIME 2 plugin developers to initialize a plugin package. See https://qiime2.org/ for more details about developing QIIME 2 plugins.
-
-This repository can be used directly with cookiecutter. A more convenient option for plugin developers is to use [q2cli's](https://github.com/qiime2/q2cli) `qiime dev plugin-init` command or the [QIIME 2 framework's](https://github.com/qiime2/qiime2) `qiime.plugin.plugin_init` API.
+This repository is intended to be used by QIIME 2 plugin developers to initialize a plugin package. See the plugin development guide on https://docs.qiime2.org/ for details about developing QIIME 2 plugins and how to use this template repository with [Cookiecutter](http://cookiecutter.readthedocs.io/en/latest/).
